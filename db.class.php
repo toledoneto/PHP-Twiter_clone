@@ -1,34 +1,36 @@
 <?php
-	/**
-	 * 
-	 */
-	class db{
-		
-		private $host = 'localhost';
 
-		private $usuario = 'root';
+    class db {
 
-		private $senha = '';
+        //host
+        private $host = 'localhost';
 
-		private $database = 'twitter_clone';
+        //usuario
+        private $usuario = 'root';
 
-		public function conecta_mysql(){
+        //senha
+        private $senha = '';
 
-			// conecta no DB
-			$connection = mysqli_connect($this->host, $this->usuario, $this->senha, $this->database);
+        //banco de dados
+        private $database = 'twitter_clone';
 
-			//informando ao db que a comunicação se dará através desse tipo de escrita
-			mysqli_set_charset($connection, 'utf8');
+        public function conecta_mysql(){
 
+            //criar conexao
+            $con = mysqli_connect($this->host, $this->usuario, $this->senha, $this->database);
 
-			//erro de conexão
-			if(mysqli_connect_errno()){
-				echo "Erro ao conectar com o DB MySQL: ".mysqli_connect_errno();
+            //ajustar o charset de comunicação entre a aplicação e o banco de dados
+            mysqli_set_charset($con, 'utf8');
 
-			}
+            //verificar se houve erro de conexão
+            if(mysqli_connect_errno()){
+                echo 'Erro ao tentar se conectar com BD MySQL: ' . mysqli_connect_error();
+            }
 
-			return $connection;
-		}
+            return $con;
 
-	}
+        }
+
+    }
+
 ?>

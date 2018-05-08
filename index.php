@@ -1,9 +1,8 @@
 <?php
+
 	$erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
-	// echo $erro;
+
 ?>
-
-
 
 <!DOCTYPE HTML>
 <html lang="pt-br">
@@ -19,31 +18,34 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	
 		<script>
-			// código javascript
-			$(document).ready( function(){
-				
-				// verifica se os campos de user e senha estão preenchidos
+
+			//verificar se os campos de usuário e senha foram devidamente preenchidos
+			$(document).ready(function(){
+
 				$('#btn_login').click(function(){
+
 					var campo_vazio = false;
 
-					if ($('#campo_usuario').val() == '') {
-						$('#campo_usuario').css({'border-color': '#A94442'});
+					if($('#campo_usuario').val() == ''){
+						$('#campo_usuario').css({'border-color' : '#A94442'});
 						campo_vazio = true;
-					} else {
-						$('#campo_usuario').css({'border-color': 'CCC'});
+					}else{
+						$('#campo_usuario').css({'border-color' : '#CCC'});
 					}
 
-					if ($('#campo_senha').val() == '') {
-						$('#campo_senha').css({'border-color': '#A94442'});
+					if($('#campo_senha').val() == ''){
+						$('#campo_senha').css({'border-color' : '#A94442'});
 						campo_vazio = true;
-					} else {
-						$('#campo_senha').css({'border-color': 'CCC'});
-					}	
+					}else{
+						$('#campo_senha').css({'border-color' : '#CCC'});
+					}
 
-					//como essa função cuida do evento ao clickar no mouse, um retorno false impede que o envio ocorra, ou seja, evita que enviemos dados faltando
-					if (campo_vazio) return false;
+					if(campo_vazio) return false;
+
 				});
+
 			});
+
 		</script>
 	</head>
 
@@ -85,11 +87,15 @@
 								<br /><br />
 								
 							</form>
+
 							<?php
-								if ($erro == 1) {
-									echo '<font color="#FF0000">user ou senha inválidos</font>';
+
+								if($erro == 1){
+									echo '<font color="#FF0000">Usuário e ou senha inválido(s)</font>';
 								}
+
 							?>
+
 						</form>
 				  	</ul>
 	            </li>
